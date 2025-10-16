@@ -9,53 +9,57 @@ PC installed with SCILAB.
 
 # PROGRAM: 
 // DISCRETE FOURIER TRANSFORM 
-'''
-clc;
 
-clear;
+    clc;
 
-x = [1 2 3 4];
+    clear;
 
-N = length(x);
+    x = [1 2 3 4];
 
-n = 0:N-1;
+    N = length(x);
 
-X = zeros(1,N);
+    n = 0:N-1;
 
-for k = 0:N-1
+    X = zeros(1,N);
 
-  for m = 0:N-1
-        X(k+1) = X(k+1) + x(m+1)exp(-%i*2%pi*k*m/N);
-    end
-end
+     for k = 0:N-1
 
-Y = fft(x,-1);
+ 
+        for m = 0:N-1
+  
+           X(k+1) = X(k+1) + x(m+1)exp(-%i*2%pi*k*m/N);
+        
+         end
+    
+     end
 
-figure;
+    Y = fft(x,-1);
 
-subplot(3,1,1);
+    figure;
 
-plot2d3(n,x);
+    subplot(3,1,1);
 
-xlabel("n"); ylabel("x[n]");
+    plot2d3(n,x);
 
-title("Input Sequence");
+    xlabel("n"); ylabel("x[n]");
 
-subplot(3,1,2);
+    title("Input Sequence");
 
-plot2d3(n,abs(X));
+    subplot(3,1,2);
 
-xlabel("k"); ylabel("|X(k)|");
+    plot2d3(n,abs(X));
 
-title("DFT Magnitude Spectrum (Direct)");
+    xlabel("k"); ylabel("|X(k)|");
 
-subplot(3,1,3);
+    title("DFT Magnitude Spectrum (Direct)");
 
-plot2d3(n,abs(Y));
+    subplot(3,1,3);
 
-xlabel("k"); ylabel("|Y(k)|");
+    plot2d3(n,abs(Y));
 
-title("FFT Magnitude Spectrum (Built-in)");
+    xlabel("k"); ylabel("|Y(k)|");
+
+    title("FFT Magnitude Spectrum (Built-in)");
 
 # OUTPUT: 
 <img width="767" height="716" alt="image" src="https://github.com/user-attachments/assets/31ff026f-faf9-485c-abf3-59ef7e9635a1" />
