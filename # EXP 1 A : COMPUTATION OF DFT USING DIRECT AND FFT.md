@@ -24,7 +24,7 @@ X = zeros(1,N);
 
 for k = 0:N-1
 
-    for m = 0:N-1
+  for m = 0:N-1
         X(k+1) = X(k+1) + x(m+1)exp(-%i*2%pi*k*m/N);
     end
 end
